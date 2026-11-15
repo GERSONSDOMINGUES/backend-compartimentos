@@ -16,6 +16,16 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.use(express.urlencoded({ extended: true }));
+
+// Evita erro 400 caso o Mercado Pago envie body vazio com header JSON
+app.use((err: any, req: any, res: any, next: any) => {
+    if (err instanceof SyntaxError && 'body' in err) {
+        return res.status(200).json({ status: "ok" });
+    }
+    next();
+});
+
 // funções auxiliares.
 function converterPixRecebido(valorPix: number) {
     var valorAux = 0;
@@ -158,7 +168,8 @@ app.get("/rota-recebimento-teste", async (req: any, res: any) => {
     }
 });
 
-app.post("/rota-recebimento-mercado-pago-gerson", async (req: any, res: any) => {
+app.all("/rota-recebimento-mercado-pago-gerson", async (req: any, res: any) => {
+
     try {
         console.log("Query:", req.query);
         console.log("Body:", req.body);
