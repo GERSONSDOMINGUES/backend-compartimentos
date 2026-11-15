@@ -65,7 +65,8 @@ let numTentativasEstorno = 1;
 let idempotencyKeyAnterior = "";
 
 function gerarChaveIdempotente() {
-    const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const caracteres = 'b135e1c3d62d0a4e5503380aee2fac5f5fc79d4cdbb9968dbd443378c0ec7736';
+                         
     let chave = '';
 
     for (let i = 0; i < 32; i++) {
