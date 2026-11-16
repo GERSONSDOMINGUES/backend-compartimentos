@@ -192,7 +192,7 @@ app.get("/rota-recebimento-teste", async (req: any, res: any) => {
 
 
 
-app.post("/rota-recebimento-mercado-pago-joao", async (req: any, res: any) => {
+app.post("/rota-recebimento-mercado-pago-gerson", async (req: any, res: any) => {
     try {
 
         //teste de chamada do Mercado Pago
