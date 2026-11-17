@@ -221,7 +221,7 @@ app.post("/rota-recebimento-mercado-pago-gerson", async (req: any, res: any) => 
                 console.log('storetransaction_amount_id', response.data.transaction_amount);
 
                 //creditar de acordo com o store_id (um para cada maq diferente)
-                if (response.data.store_id == '68826545') {
+                if (response.data.store_id == '83220809') {
                     if (tempoOffline(ultimoAcessoMaquina01) >= 10) {
                         console.log("Efetuando estorno - Máquina Offline!");
                         estornar(req.query.id, mercadoPagoToken!, "Máquina Offline");
